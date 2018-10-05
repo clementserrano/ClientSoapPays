@@ -14,6 +14,8 @@ import service.ServiceMonExceptionException;
 import service.ServiceStub;
 import service.ServiceStub.ConsulterListePays;
 import service.ServiceStub.ConsulterListePaysResponse;
+import service.ServiceStub.ConsulterPays;
+import service.ServiceStub.ConsulterPaysResponse;
 import service.ServiceStub.Pays;
 
 public class Controleur extends HttpServlet {
@@ -33,8 +35,14 @@ public class Controleur extends HttpServlet {
 			
 			String pays = req.getParameter("pays");
 			if (pays != null) {
-				// TODO
-				// req.setAttribute("pays", );
+				Pays paysBD;
+				ConsulterPays cP = new ConsulterPays();
+				cP.setNom(pays);
+				ConsulterPaysResponse cPResponse = new ConsulterPaysResponse();
+				cPResponse = service.consulterPays(cP);
+				paysBD = cPResponse.get_return();
+				System.out.println(paysBD.getNomPays());
+				req.setAttribute("pays", paysBD);
 				nextPage = "/unPays.jsp";
 			} else {
 				Pays[] listePays;
