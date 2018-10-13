@@ -1,32 +1,49 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="service.ServiceStub.Pays" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="service.ServiceStub.Pays"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <% Pays pays = (Pays) request.getAttribute("pays"); %>
 <head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"
+	media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><%= pays.getNomPays() %></title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/styles.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
-   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-   crossorigin=""/>
+<link rel="stylesheet"
+	href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+	integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+	crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
-integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
-crossorigin=""></script>
+	integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+	crossorigin=""></script>
 </head>
 <body>
-	<h1>Gestion des Pays SOAP</h1>
-	Pays : <%= pays.getNomPays() %> <br>
-	Continent : <%= pays.getNomContinent() %> <br>
-	Capitale : <%= pays.getNomCapitale() %> <br>
-	Nombre d'habitants : <%= pays.getNbHabitants() %> <br>
-	<a href="http://localhost:8080/ClientSoapPays/Controleur">Retour à l'accueil</a>
-	<div id="mapid"></div>
-	<script>
+	<div class="container">
+		<h1>Gestion des Pays SOAP</h1>
+		Pays :
+		<%= pays.getNomPays() %>
+		<br> Continent :
+		<%= pays.getNomContinent() %>
+		<br> Capitale :
+		<%= pays.getNomCapitale() %>
+		<br> Nombre d'habitants :
+		<%= pays.getNbHabitants() %>
+		<br> <a href="http://localhost:8080/ClientSoapPays/Controleur">Retour
+			à l'accueil</a>
+		<div id="mapid"></div>
+		<script>
 		let nomPays='<%= pays.getNomPays() %>';
 		let nomCapitale='<%= pays.getNomCapitale() %>';
 		nomPays = nomPays.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
@@ -52,6 +69,9 @@ crossorigin=""></script>
 			})
 		})
     </script>
+		<!--JavaScript at end of body for optimized loading-->
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+	</div>
 </body>
 </html>
 </body>
