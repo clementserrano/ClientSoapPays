@@ -9,20 +9,21 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <!--Import materialize.css-->
-<link type="text/css" rel="stylesheet" href="css/materialize.min.css"
+<link type="text/css" rel="stylesheet" href="resources/css/materialize.min.css"
 	media="screen,projection" />
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/styles.css">
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Gestion des Pays SOAP</title>
 </head>
 <body>
+	<jsp:include page="navbar.jsp" />
 	<div class="container">
-		<h1>Gestion des Pays SOAP</h1>
 		<a href="Controleur">Charger les pays</a>
 		<!--JavaScript at end of body for optimized loading-->
-		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<script type="text/javascript" src="resources/js/materialize.min.js"></script>
 	</div>
 </body>
 </html>
