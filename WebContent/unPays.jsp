@@ -27,8 +27,13 @@ crossorigin=""></script>
 	<a href="http://localhost:8080/ClientSoapPays/Controleur">Retour à l'accueil</a>
 	<div id="mapid"></div>
 	<script>
-		const UrlPays='https://nominatim.openstreetmap.org/search?q=<%= pays.getNomPays() %>&format=json&limit=1';
-		const UrlCapitale='https://nominatim.openstreetmap.org/search?q=<%= pays.getNomCapitale() %>&format=json&limit=1';
+		let nomPays='<%= pays.getNomPays() %>';
+		let nomCapitale='<%= pays.getNomCapitale() %>';
+		nomPays = nomPays.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+		nomCapitale = nomCapitale.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+	
+		const UrlPays='https://nominatim.openstreetmap.org/search?q='+nomPays+'&format=json&limit=1';
+		const UrlCapitale='https://nominatim.openstreetmap.org/search?q='+nomCapitale+'&format=json&limit=1';
 		
 		$.getJSON(UrlPays, function(resultPays){
 			const latPays = resultPays[0]['lat'];
