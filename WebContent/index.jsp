@@ -9,8 +9,8 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <!--Import materialize.css-->
-<link type="text/css" rel="stylesheet" href="resources/css/materialize.min.css"
-	media="screen,projection" />
+<link type="text/css" rel="stylesheet"
+	href="resources/css/materialize.min.css" media="screen,projection" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/styles.css">
 <!--Let browser know website is optimized for mobile-->
@@ -18,14 +18,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Gestion des Pays SOAP</title>
 </head>
-<body>
+<body class="bg-tourism">
 	<jsp:include page="navbar.jsp" />
+	<main>
 	<div class="container">
-		<a href="Controleur">Charger les pays</a>
-		<!--JavaScript at end of body for optimized loading-->
-		<script type="text/javascript" src="resources/js/materialize.min.js"></script>
+		<div class="section center">
+			<a class="btn wave-effect wave-light" href="Controleur">Charger
+				les pays</a>
+		</div>
 	</div>
-</body>
-</html>
+	</main>
+	<jsp:include page="footer.jsp" />
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="resources/js/materialize.min.js"></script>
+	
 </body>
 </html>

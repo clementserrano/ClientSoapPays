@@ -21,37 +21,61 @@
 <title>Gestion des Pays SOAP</title>
 </head>
 
-<body>
+<body class="bg-tourism">
 	<jsp:include page="navbar.jsp" />
 
-	<div>
-		<h5 class="center">Entrez ci-dessous la destination de vos rêves
-			!</h5>
-	</div>
-
+	<main>
 	<div class="container">
-		<div class="row">
-			<form class="col s12" method="post" action="Controleur">
-				<div class="row">
-					<div class="input-field col s9">
-						<select name="pays" size="1">
-							<c:forEach items="${listePays}" var="pays">
-								<option value="${pays.getNomPays()}">${pays.getNomPays()}</option>
-							</c:forEach>
-						</select>
+		<div class="row card white z-depth-5">
+			<div class="card-content">
+				<span class="center card-title">Entrez ci-dessous la
+					destination de vos rêves !</span>
+
+				<form class="col s12" method="post" action="Controleur">
+					<div class="row">
+						<div class="input-field col s9">
+							<select name="pays" size="1">
+								<c:forEach items="${listePays}" var="pays">
+									<option value="${pays.getNomPays()}">${pays.getNomPays()}</option>
+								</c:forEach>
+							</select>
+						</div>
+						<div class="input-field col s3">
+							<button class="btn waves-effect waves-light" type='submit'>
+								Rechercher <i class="material-icons right">send</i>
+							</button>
+						</div>
 					</div>
-					<div class="input-field col s3">
-						<button class="btn waves-effect waves-light" type='submit'>
-							Rechercher <i class="material-icons right">send</i>
-						</button>
-					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	</main>
+
+	<!-- Element Showed -->
+	<div class="fixed-action-btn direction-top active custom-discovery">
+		<a id="menu"
+			class="waves-effect waves-light btn btn-floating right-align"
+			onclick="$('.tap-target').tapTarget('open')"><i
+			class="material-icons">menu</i></a>
+	</div>
+	<!-- Tap Target Structure -->
+	<div class="tap-target teal white-text bg-auteurs" data-target="menu">
+		<div class="tap-target-content">
+			<div class="card teal border-round">
+				<div class="card-content">
+					<span class="card-title">Materialize</span>
+					<p>Ce projet a été réalisé avec: materializecss.com par SERRANO
+						Clément et JOLIVET Nathan</p>
 				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 
+	<jsp:include page="footer.jsp" />
+
 	<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="resources/js/materialize.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('.parallax').parallax();
@@ -59,6 +83,14 @@
 
 		$(document).ready(function() {
 			$('select').formSelect();
+		});
+
+		M.toast({
+			html : 'Chargement effectué'
+		})
+
+		$(document).ready(function() {
+			$('.tap-target').tapTarget();
 		});
 	</script>
 

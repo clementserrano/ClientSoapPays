@@ -13,8 +13,8 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <!--Import materialize.css-->
-<link type="text/css" rel="stylesheet" href="resources/css/materialize.min.css"
-	media="screen,projection" />
+<link type="text/css" rel="stylesheet"
+	href="resources/css/materialize.min.css" media="screen,projection" />
 
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +22,8 @@
 <title><%=pays.getNomPays()%></title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/styles.css">
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet"
 	href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
 	integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
@@ -31,47 +32,55 @@
 	integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
 	crossorigin=""></script>
 </head>
-<body>
+<body class="bg-tourism">
 	<jsp:include page="navbar.jsp" />
-		<div class="container">
-			<div class="section">
-				<div class="row">
-	
-					<div class="col s4">
-						<table>
-	
-	
-							<tbody>
-								<tr>
-									<th class="s4">Pays</th>
-									<td class="s8"><%=pays.getNomPays()%></td>
-								</tr>
-								<tr>
-									<th class="s4">Continent</th>
-									<td class="s8"><%=pays.getNomContinent()%></td>
-								</tr>
-								<tr>
-									<th class="s4">Capitale</th>
-									<td class="s8"><%=pays.getNomCapitale()%></td>
-								</tr>
-								<tr>
-									<th class="s4">Nombre d'habitants</th>
-									<td class="s8"><%=pays.getNbHabitants()%></td>
-								</tr>
-							</tbody>
-						</table>
-	
-						<br> <a class="waves-effect waves-light btn"
-							href="http://localhost:8080/ClientSoapPays/Controleur">Retour
-							à l'accueil <i class="material-icons left">chevron_left</i>
-						</a>
-	
-					</div>
-					<div class="col s8">
-						<div id="mapid"></div>
-					</div>
+	<main>
+	<div class="container">
+		<div class="section card white z-depth-5">
+			<div class="row card-content">
+
+				<div class="col s4">
+					<table>
+
+
+						<tbody>
+							<tr>
+								<th class="s4">Pays</th>
+								<td class="s8"><%=pays.getNomPays()%></td>
+							</tr>
+							<tr>
+								<th class="s4">Continent</th>
+								<td class="s8"><%=pays.getNomContinent()%></td>
+							</tr>
+							<tr>
+								<th class="s4">Capitale</th>
+								<td class="s8"><%=pays.getNomCapitale()%></td>
+							</tr>
+							<tr>
+								<th class="s4">Nombre d'habitants</th>
+								<td class="s8"><%=pays.getNbHabitants()%></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<br> <a class="waves-effect waves-light btn"
+						href="http://localhost:8080/ClientSoapPays/Controleur">Retour
+						à l'accueil <i class="material-icons left">chevron_left</i>
+					</a>
+
 				</div>
-				<script>
+				<div class="col s8">
+					<div id="mapid"></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	</main>
+	<jsp:include page="footer.jsp" />
+
+
+	<script>
 			let nomPays='<%= pays.getNomPays() %>';
 			let nomCapitale='<%= pays.getNomCapitale() %>';
 			nomPays = nomPays.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
@@ -97,11 +106,11 @@
 				})
 			})
 			
+			
+			
 			</script>
-			<!--JavaScript at end of body for optimized loading-->
-			<script type="text/javascript" src="js/materialize.min.js"></script>
-		</div>
-	</div>
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="resources/js/materialize.min.js"></script>
 </body>
 </html>
 </body>
