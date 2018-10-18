@@ -41,7 +41,6 @@ public class Controleur extends HttpServlet {
 				ConsulterPaysResponse cPResponse = new ConsulterPaysResponse();
 				cPResponse = service.consulterPays(cP);
 				paysBD = cPResponse.get_return();
-				System.out.println(paysBD.getNomPays());
 				req.setAttribute("pays", paysBD);
 				nextPage = "/unPays.jsp";
 			} else {
